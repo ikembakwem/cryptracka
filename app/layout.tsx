@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Cryptracka",
   description: "Monitor all your favorites cryptocurrencies in one place",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
