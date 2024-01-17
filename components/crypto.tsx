@@ -21,11 +21,11 @@ export const Crypto = ({ data }: Props) => {
       className="py-3 flex justify-between items-center text-base font-normal w-full"
     >
       <div className="flex w-1/3">
-        <div className="flex items-baseline">
-          <div className="mr-1 ml-2 text-lg text-[#eaecef] font-medium min-w-12">
+        <div>
+          <div className="text-lg leading-tight text-[#eaecef] font-medium min-w-12">
             {data.symbol}
           </div>
-          <div className="text-sm text-[#848E9C] whitespace-nowrap leading-[20px]">
+          <div className="text-sm text-[#848E9C] whitespace-nowrap leading-none">
             {data.name}
           </div>
         </div>
