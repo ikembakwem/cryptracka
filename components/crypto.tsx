@@ -5,7 +5,7 @@ export const Crypto = () => {
       className="py-3 w-full flex justify-between items-center text-base font-normal"
     >
       <div className="flex w-[45%]">
-        <div className="flex items-center">
+        <div className="flex items-baseline">
           <div className="mr-1 ml-2 text-lg text-[#eaecef] font-medium">
             BTC
           </div>
@@ -22,7 +22,7 @@ export const Crypto = () => {
       </div>
       <div className="flex flex-end w-[25%]">
         <div className="flex items-center justify-center w-[72px] h-10 bg-[#f6465d] rounded">
-          <span className="text-[#eaecef]">-1.28%</span>
+          <span>-1.28%</span>
         </div>
       </div>
     </a>
