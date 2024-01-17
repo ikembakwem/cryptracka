@@ -1,28 +1,46 @@
-export const Crypto = () => {
+export type CryptoData = {
+  id: string;
+  name: string;
+  symbol: string;
+  priceUsd: string;
+  changePercent24Hr: string;
+};
+
+type Props = {
+  data: CryptoData;
+};
+
+export const Crypto = ({ data }: Props) => {
+  const { changePercent24Hr, priceUsd } = data;
+  const changePrc = Number(changePercent24Hr);
+  const price = Number(priceUsd);
+
   return (
     <a
       href="#"
-      className="py-3 w-full flex justify-between items-center text-base font-normal"
+      className="py-3 flex justify-between items-center text-base font-normal w-full"
     >
-      <div className="flex w-[45%]">
+      <div className="flex w-1/3">
         <div className="flex items-baseline">
-          <div className="mr-1 ml-2 text-lg text-[#eaecef] font-medium">
-            BTC
+          <div className="mr-1 ml-2 text-lg text-[#eaecef] font-medium min-w-12">
+            {data.symbol}
           </div>
           <div className="text-sm text-[#848E9C] whitespace-nowrap leading-[20px]">
-            Bitcoin
+            {data.name}
           </div>
         </div>
       </div>
-      <div className="flex flex-end w-[25%] font-medium">
-        <div className="flex flex-col items-end">
-          <span className="text-[#eaecef] font-medium">$4,345</span>
-          <span className="text-xs font-light text-[#848E9C]">$4,345</span>
-        </div>
+      <div className="w-1/3 font-medium text-end">
+        <p className="text-[#eaecef] font-medium">${price.toFixed(2)}</p>
+        <p className="text-xs font-light text-[#848E9C]">${price.toFixed(2)}</p>
       </div>
-      <div className="flex flex-end w-[25%]">
-        <div className="flex items-center justify-center w-[72px] h-10 bg-[#f6465d] rounded">
-          <span>-1.28%</span>
+      <div className="flex justify-end">
+        <div
+          className={`flex text-sm items-center justify-center self-end w-[64px] h-8 ${
+            changePrc > 0 ? "bg-[#0ecb81]" : "bg-[#f6465d]"
+          } rounded`}
+        >
+          <span>{changePrc.toFixed(2)}%</span>
         </div>
       </div>
     </a>
