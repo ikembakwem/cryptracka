@@ -14,12 +14,16 @@ async function CryptoTable() {
   const result = await response.json();
   const data: CryptoData[] = result.data;
   return (
-    <section>
+    <section className="mt-12">
       <Container>
-        <div className="py-6">
-          <h1 className="px-4 text-3xl text-[#f0b90b] font-medium">
-            Cryptracka
-          </h1>
+        <div>
+          <div className="flex justify-between items-center w-full text-[#848e96] text-xs">
+            <div className="flex w-1/3">Crypto</div>
+            <div className="w-1/3 text-end">Last Price</div>
+            <div className="flex justify-end">
+              <div className="min-w-[72px] text-end">24h chg%</div>
+            </div>
+          </div>
         </div>
         <div>
           {data.map((d) => (
