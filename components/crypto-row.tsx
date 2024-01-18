@@ -10,10 +10,14 @@ type Props = {
   data: CryptoData;
 };
 
-export const Crypto = ({ data }: Props) => {
+export const CryptoRow = ({ data }: Props) => {
   const { changePercent24Hr, priceUsd } = data;
   const changePrc = Number(changePercent24Hr);
   const price = Number(priceUsd);
+  const formattedPrice =
+    price < 2 ? price.toFixed(6) : Number(price.toFixed(2)).toLocaleString();
+  const formattedPrc =
+    changePrc > 0 ? `+${changePrc.toFixed(2)}%` : `${changePrc.toFixed(2)}%`;
 
   return (
     <a
@@ -31,10 +35,8 @@ export const Crypto = ({ data }: Props) => {
         </div>
       </div>
       <div className="w-1/3 font-medium text-end">
-        <p className="text-[#eaecef] font-medium">
-          ${price < 0.001 ? price.toFixed(6) : price.toFixed(2)}
-        </p>
-        <p className="text-xs font-light text-[#848E9C]">${price.toFixed(2)}</p>
+        <p className="text-[#eaecef] font-medium">${formattedPrice}</p>
+        <p className="text-xs font-light text-[#848E9C]">${formattedPrice}</p>
       </div>
       <div className="flex justify-end">
         <div
@@ -42,9 +44,7 @@ export const Crypto = ({ data }: Props) => {
             changePrc > 0 ? "bg-[#0ecb81]" : "bg-[#f6465d]"
           } rounded`}
         >
-          <span>
-            {changePrc > 0 ? `+${changePrc.toFixed(2)}` : changePrc.toFixed(2)}%
-          </span>
+          <span>{formattedPrc}</span>
         </div>
       </div>
     </a>

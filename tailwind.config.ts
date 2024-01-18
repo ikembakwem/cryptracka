@@ -7,7 +7,17 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        containerXs: "calc(100% - 32px)",
+        containerSm: "calc(100% - 48px)",
+        containerMd: "calc(100% - 64px)",
+        container: "1280px",
+      },
+      screens: {
+        sm: "484px",
+      },
+    },
   },
   plugins: [],
 };
