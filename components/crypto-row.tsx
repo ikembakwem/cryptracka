@@ -15,7 +15,11 @@ export const CryptoRow = ({ data }: Props) => {
   const changePrc = Number(changePercent24Hr);
   const price = Number(priceUsd);
   const formattedPrice =
-    price < 2 ? price.toFixed(6) : Number(price.toFixed(2)).toLocaleString();
+    price > 10
+      ? Number(price.toFixed(2)).toLocaleString()
+      : price > 0.01
+      ? price.toFixed(4)
+      : Number(price.toFixed(6));
   const formattedPrc =
     changePrc > 0 ? `+${changePrc.toFixed(2)}%` : `${changePrc.toFixed(2)}%`;
 
