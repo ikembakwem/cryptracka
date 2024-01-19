@@ -3,11 +3,11 @@ import { Container } from "./container";
 
 export const Hero = () => {
   return (
-    <section className="pb-12 md:py-8 md:mt-9 text-center md:text-left">
+    <section className="md:mt-9 text-center md:text-left">
       <Container>
-        <div className="flex flex-col-reverse md:flex-row md:items-center">
+        <div className="flex flex-col-reverse md:flex-row md:items-center pb-12 md:py-8">
           <div className="md:max-w-[520px] md:w-3/5">
-            <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            <h1 className="text-4xl font-bold leading-none tracking-tight md:text-5xl">
               Track all your cryptocurrencies in one place
             </h1>
             <p className="text-lg leading-snug text-[#6f7081] mt-4 md:text-xl">
