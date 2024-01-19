@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Cryptracka",
@@ -20,7 +21,7 @@ export default function RootLayout({
       <body>
         <Header />
         <main>{children}</main>
-        <footer></footer>
+        <Footer />
       </body>
     </html>
   );

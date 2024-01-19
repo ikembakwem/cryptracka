@@ -12,7 +12,7 @@ const config: Config = {
         containerXs: "calc(100% - 32px)",
         containerSm: "calc(100% - 48px)",
         containerMd: "calc(100% - 64px)",
-        container: "1280px",
+        container: "1180px",
       },
       screens: {
         sm: "484px",
