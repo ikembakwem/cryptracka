@@ -24,7 +24,7 @@ export const CryptoRows = ({ data }: Props) => {
 
   return (
     <>
-      <div className="px-2 py-3">
+      <div className="mx-auto px-2 py-3 sm:px-4 md:px-0 lg:px-12 md:max-w-containerMd lg:max-w-container">
         <h3 className="inline-block text-lg md:text-xl text-[#848e96] font-semibold border-b-4 border-[#f0b90b]">
           Top
         </h3>
