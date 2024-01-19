@@ -22,25 +22,27 @@ export const CryptoRow = ({ data }: Props) => {
   return (
     <a
       href="#"
-      className="py-3 flex justify-between items-center text-base font-normal w-full"
+      className="py-3 flex justify-between items-center text-base md:text-lg font-normal w-full"
     >
       <div className="flex w-1/3">
         <div>
-          <div className="text-lg leading-tight text-[#eaecef] font-medium min-w-12">
+          <div className="text-lg md:text-xl leading-tight text-[#eaecef] font-medium min-w-12">
             {data.symbol}
           </div>
-          <div className="text-sm text-[#848E9C] whitespace-nowrap leading-none">
+          <div className="text-sm md:text-base text-[#848E9C] whitespace-nowrap leading-none">
             {data.name}
           </div>
         </div>
       </div>
       <div className="w-1/3 font-medium text-end">
         <p className="text-[#eaecef] font-medium">${formattedPrice}</p>
-        <p className="text-xs font-light text-[#848E9C]">${formattedPrice}</p>
+        <p className="text-xs md:text-sm font-light text-[#848E9C]">
+          ${formattedPrice}
+        </p>
       </div>
       <div className="flex justify-end">
         <div
-          className={`flex text-sm items-center justify-center self-end w-[72px] h-8 ${
+          className={`flex text-sm md:text-base items-center justify-center self-end w-[72px] h-8 ${
             changePrc > 0 ? "bg-[#0ecb81]" : "bg-[#f6465d]"
           } rounded`}
         >
