@@ -10,10 +10,29 @@ type Props = {
 export const CryptoRows = ({ data }: Props) => {
   const [loadMore, setLoadMore] = useState(false);
   const [apiData, setApiData] = useState<CryptoData[]>([]);
-  const [allData, setAllData] = useState<CryptoData[]>([]);
+  const [allData, setAllData] = useState<CryptoData[]>(data);
+  const [listing, setListing] = useState<CryptoData[]>(data);
+  const [activeListing, setActiveListing] = useState<
+    "top" | "gainers" | "losers"
+  >("top");
+
+  const handleGainers = () => {
+    const data = allData.toSorted(
+      (a, b) => Number(b.changePercent24Hr) - Number(a.changePercent24Hr)
+    );
+    setAllData(data);
+    setActiveListing("gainers");
+  };
+
+  const handleLosers = () => {
+    const data = allData.toSorted(
+      (a, b) => Number(a.changePercent24Hr) - Number(b.changePercent24Hr)
+    );
+    setAllData(data);
+    setActiveListing("losers");
+  };
 
   useEffect(() => {
-    setAllData(data);
     if (loadMore) {
       setApiData(allData);
       return;
@@ -24,10 +43,49 @@ export const CryptoRows = ({ data }: Props) => {
 
   return (
     <>
-      <div className="mx-auto px-2 py-3 sm:px-4 md:px-0 lg:px-12 md:max-w-containerMd lg:max-w-container">
-        <h3 className="inline-block text-lg md:text-xl text-[#848e96] font-semibold border-b-4 border-[#f0b90b]">
-          Top
-        </h3>
+      <div className="flex gap-x-3 text-lg md:text-xl mx-auto px-2 py-3 sm:px-4 md:px-0 lg:px-12 md:max-w-containerMd lg:max-w-container">
+        <button
+          onClick={() => {
+            setAllData(listing);
+            setActiveListing("top");
+          }}
+          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-2 ${
+            activeListing === "top" ? "text-white" : "text-[#848e96]"
+          }  font-medium leading-none`}
+        >
+          <span>Top</span>
+          <span
+            className={`${
+              activeListing !== "top" ? "hidden" : ""
+            } absolute bottom-0 bg-[#f0b90b] w-3 h-1`}
+          ></span>
+        </button>
+        <button
+          onClick={handleGainers}
+          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-2 ${
+            activeListing === "gainers" ? "text-white" : "text-[#848e96]"
+          }  font-medium leading-none`}
+        >
+          <span>Gainers</span>
+          <span
+            className={`${
+              activeListing !== "gainers" ? "hidden" : ""
+            } absolute bottom-0 bg-[#f0b90b] w-3 h-1`}
+          ></span>
+        </button>
+        <button
+          onClick={handleLosers}
+          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-2 ${
+            activeListing === "losers" ? "text-white" : "text-[#848e96]"
+          }  font-medium leading-none`}
+        >
+          <span>Losers</span>
+          <span
+            className={`${
+              activeListing !== "losers" ? "hidden" : ""
+            } absolute bottom-0 bg-[#f0b90b] w-3 h-1`}
+          ></span>
+        </button>
       </div>
       <Container>
         <div>
@@ -47,9 +105,9 @@ export const CryptoRows = ({ data }: Props) => {
         <div>
           <button
             onClick={() => setLoadMore((prev) => !prev)}
-            className="cursor-pointer p-2 min-w-72"
+            className="inline-flex items-center justify-center cursor-pointer min-w-[72px] focus:outline-none"
           >
-            <span className="text-[#f0b90b] underline">
+            <span className="text-[#f0b90b] underline text-sm">
               {loadMore ? "Show less" : "Show more"}
             </span>
           </button>
