@@ -49,7 +49,15 @@ export const CryptoRows = ({ data }: Props) => {
             setAllData(listing);
             setActiveListing("top");
           }}
-          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-2 ${
+          onTouchStart={() => {
+            setAllData(listing);
+            setActiveListing("top");
+          }}
+          onTouchEnd={() => {
+            setAllData(listing);
+            setActiveListing("top");
+          }}
+          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-3 ${
             activeListing === "top" ? "text-white" : "text-[#848e96]"
           }  font-medium leading-none`}
         >
@@ -57,12 +65,14 @@ export const CryptoRows = ({ data }: Props) => {
           <span
             className={`${
               activeListing !== "top" ? "hidden" : ""
-            } absolute bottom-0 bg-[#f0b90b] w-3 h-1`}
+            } absolute -z-10 bottom-0 bg-[#f0b90b] w-3 h-1`}
           ></span>
         </button>
         <button
           onClick={handleGainers}
-          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-2 ${
+          onTouchStart={handleGainers}
+          onTouchEnd={handleGainers}
+          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-3 ${
             activeListing === "gainers" ? "text-white" : "text-[#848e96]"
           }  font-medium leading-none`}
         >
@@ -70,12 +80,14 @@ export const CryptoRows = ({ data }: Props) => {
           <span
             className={`${
               activeListing !== "gainers" ? "hidden" : ""
-            } absolute bottom-0 bg-[#f0b90b] w-3 h-1`}
+            } absolute -z-10 bottom-0 bg-[#f0b90b] w-3 h-1`}
           ></span>
         </button>
         <button
           onClick={handleLosers}
-          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-2 ${
+          onTouchStart={handleLosers}
+          onTouchEnd={handleLosers}
+          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-3 ${
             activeListing === "losers" ? "text-white" : "text-[#848e96]"
           }  font-medium leading-none`}
         >
@@ -83,7 +95,7 @@ export const CryptoRows = ({ data }: Props) => {
           <span
             className={`${
               activeListing !== "losers" ? "hidden" : ""
-            } absolute bottom-0 bg-[#f0b90b] w-3 h-1`}
+            } absolute -z-10 bottom-0 bg-[#f0b90b] w-3 h-1`}
           ></span>
         </button>
       </div>

@@ -9,7 +9,7 @@ async function CryptoTable() {
       "Accept-Encoding": "gzip, deflate",
       "Content-Type": "application/json",
     },
-    next: { revalidate: 60 * 10 },
+    next: { revalidate: 60 * 60 },
   });
 
   const result = await response.json();
