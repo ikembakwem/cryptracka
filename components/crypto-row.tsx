@@ -21,7 +21,9 @@ export const CryptoRow = ({ data }: Props) => {
       ? price.toFixed(4)
       : Number(price.toFixed(6));
   const formattedPrc =
-    changePrc > 0 ? `+${changePrc.toFixed(2)}%` : `${changePrc.toFixed(2)}%`;
+    changePrc > 0
+      ? `+${changePrc.toFixed(2)}%`
+      : `${changePrc.toFixed(2)}%`;
 
   return (
     <a
@@ -39,7 +41,9 @@ export const CryptoRow = ({ data }: Props) => {
         </div>
       </div>
       <div className="w-1/3 font-medium text-end">
-        <p className="text-[#eaecef] font-medium">${formattedPrice}</p>
+        <p className="text-[#eaecef] font-medium">
+          ${formattedPrice}
+        </p>
         <p className="text-xs md:text-sm font-light text-[#848E9C]">
           ${formattedPrice}
         </p>

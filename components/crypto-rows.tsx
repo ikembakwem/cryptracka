@@ -10,7 +10,8 @@ type Props = {
 export const CryptoRows = ({ data }: Props) => {
   const [loadMore, setLoadMore] = useState(false);
   const [apiData, setApiData] = useState<CryptoData[]>([]);
-  const [allData, setAllData] = useState<CryptoData[]>(data);
+  const [allData, setAllData] =
+    useState<CryptoData[]>(data);
 
   useEffect(() => {
     if (loadMore) {
@@ -37,7 +38,9 @@ export const CryptoRows = ({ data }: Props) => {
             <div className="flex w-1/3">Crypto</div>
             <div className="w-1/3 text-end">Last Price</div>
             <div className="flex justify-end">
-              <div className="min-w-[72px] text-end">24h chg%</div>
+              <div className="min-w-[72px] text-end">
+                24h chg%
+              </div>
             </div>
           </div>
         </div>
