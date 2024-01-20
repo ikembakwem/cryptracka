@@ -11,26 +11,6 @@ export const CryptoRows = ({ data }: Props) => {
   const [loadMore, setLoadMore] = useState(false);
   const [apiData, setApiData] = useState<CryptoData[]>([]);
   const [allData, setAllData] = useState<CryptoData[]>(data);
-  const [listing, setListing] = useState<CryptoData[]>(data);
-  const [activeListing, setActiveListing] = useState<
-    "top" | "gainers" | "losers"
-  >("top");
-
-  const handleGainers = () => {
-    const data = allData.toSorted(
-      (a, b) => Number(b.changePercent24Hr) - Number(a.changePercent24Hr)
-    );
-    setAllData(data);
-    setActiveListing("gainers");
-  };
-
-  const handleLosers = () => {
-    const data = allData.toSorted(
-      (a, b) => Number(a.changePercent24Hr) - Number(b.changePercent24Hr)
-    );
-    setAllData(data);
-    setActiveListing("losers");
-  };
 
   useEffect(() => {
     if (loadMore) {
@@ -44,60 +24,12 @@ export const CryptoRows = ({ data }: Props) => {
   return (
     <>
       <div className="flex gap-x-3 text-lg md:text-xl mx-auto px-2 py-3 sm:px-4 md:px-0 lg:px-12 md:max-w-containerMd lg:max-w-container">
-        <button
-          onClick={() => {
-            setAllData(listing);
-            setActiveListing("top");
-          }}
-          onTouchStart={() => {
-            setAllData(listing);
-            setActiveListing("top");
-          }}
-          onTouchEnd={() => {
-            setAllData(listing);
-            setActiveListing("top");
-          }}
-          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-3 ${
-            activeListing === "top" ? "text-white" : "text-[#848e96]"
-          }  font-medium leading-none`}
+        <div
+          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-3 text-white font-medium leading-none`}
         >
-          <span>Top</span>
-          <span
-            className={`${
-              activeListing !== "top" ? "hidden" : ""
-            } absolute -z-10 bottom-0 bg-[#f0b90b] w-3 h-1`}
-          ></span>
-        </button>
-        <button
-          onClick={handleGainers}
-          onTouchStart={handleGainers}
-          onTouchEnd={handleGainers}
-          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-3 ${
-            activeListing === "gainers" ? "text-white" : "text-[#848e96]"
-          }  font-medium leading-none`}
-        >
-          <span>Gainers</span>
-          <span
-            className={`${
-              activeListing !== "gainers" ? "hidden" : ""
-            } absolute -z-10 bottom-0 bg-[#f0b90b] w-3 h-1`}
-          ></span>
-        </button>
-        <button
-          onClick={handleLosers}
-          onTouchStart={handleLosers}
-          onTouchEnd={handleLosers}
-          className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-3 ${
-            activeListing === "losers" ? "text-white" : "text-[#848e96]"
-          }  font-medium leading-none`}
-        >
-          <span>Losers</span>
-          <span
-            className={`${
-              activeListing !== "losers" ? "hidden" : ""
-            } absolute -z-10 bottom-0 bg-[#f0b90b] w-3 h-1`}
-          ></span>
-        </button>
+          <span>Hot</span>
+          <span className="absolute -z-10 bottom-0 bg-[#f0b90b] w-3 h-1"></span>
+        </div>
       </div>
       <Container>
         <div>
