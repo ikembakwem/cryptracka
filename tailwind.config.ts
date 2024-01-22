@@ -8,6 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        orangeBomb: "var(--orange-bomb)",
+        moonlightMist: "var(--moonlight-mist)",
+        springMeadow: "var(--spring-meadow)",
+        stormcloudSlate: "var(--stormcloud-slate)",
+        cherryBomb: "var(--cherry-bomb)",
+        midnightStone: "var(--midnight-stone)",
+        levanderHaze: "var(--levander-haze)",
+        slateSmoke: "var(--slate-smoke)",
+      },
       maxWidth: {
         containerXs: "calc(100% - 32px)",
         containerSm: "calc(100% - 48px)",

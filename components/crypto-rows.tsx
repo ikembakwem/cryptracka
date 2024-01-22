@@ -10,8 +10,7 @@ type Props = {
 export const CryptoRows = ({ data }: Props) => {
   const [loadMore, setLoadMore] = useState(false);
   const [apiData, setApiData] = useState<CryptoData[]>([]);
-  const [allData, setAllData] =
-    useState<CryptoData[]>(data);
+  const [allData, setAllData] = useState<CryptoData[]>(data);
 
   useEffect(() => {
     if (loadMore) {
@@ -29,18 +28,16 @@ export const CryptoRows = ({ data }: Props) => {
           className={`relative flex items-center justify-center cursor-pointer focus:outline-none py-3 pr-3 text-white font-medium leading-none`}
         >
           <span>Hot</span>
-          <span className="absolute -z-10 bottom-0 bg-[#f0b90b] w-3 h-1"></span>
+          <span className="absolute -z-10 bottom-0 bg-orangeBomb w-3 h-1"></span>
         </div>
       </div>
       <Container>
         <div>
-          <div className="flex justify-between items-center w-full text-[#848e96] text-xs md:text-sm">
+          <div className="flex justify-between items-center w-full text-stormcloudSlate text-xs md:text-sm">
             <div className="flex w-1/3">Crypto</div>
             <div className="w-1/3 text-end">Last Price</div>
             <div className="flex justify-end">
-              <div className="min-w-[72px] text-end">
-                24h chg%
-              </div>
+              <div className="min-w-[72px] text-end">24h chg%</div>
             </div>
           </div>
         </div>
@@ -54,7 +51,7 @@ export const CryptoRows = ({ data }: Props) => {
             onClick={() => setLoadMore((prev) => !prev)}
             className="inline-flex items-center justify-center cursor-pointer min-w-[72px] focus:outline-none"
           >
-            <span className="text-[#f0b90b] underline text-sm">
+            <span className="text-orangeBomb underline text-sm">
               {loadMore ? "Show less" : "Show more"}
             </span>
           </button>

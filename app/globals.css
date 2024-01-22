@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --orange-bomb: #f0b90b;
+  --moonlight-mist: #eaecef;
+  --stormcloud-slate: #848e9c;
+  --spring-meadow: #0ecb81;
+  --cherry-bomb: #f6465d;
+  --midnight-stone: #36363d;
+  --levander-haze: #909baa;
+  --slate-smoke: #6f7081;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

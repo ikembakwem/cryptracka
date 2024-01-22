@@ -1,5 +1,4 @@
-import { Container } from "./container";
-import { CryptoData, CryptoRow } from "./crypto-row";
+import { CryptoData } from "./crypto-row";
 import { CryptoRows } from "./crypto-rows";
 
 async function CryptoTable() {

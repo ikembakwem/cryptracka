@@ -21,9 +21,7 @@ export const CryptoRow = ({ data }: Props) => {
       ? price.toFixed(4)
       : Number(price.toFixed(6));
   const formattedPrc =
-    changePrc > 0
-      ? `+${changePrc.toFixed(2)}%`
-      : `${changePrc.toFixed(2)}%`;
+    changePrc > 0 ? `+${changePrc.toFixed(2)}%` : `${changePrc.toFixed(2)}%`;
 
   return (
     <a
@@ -32,26 +30,24 @@ export const CryptoRow = ({ data }: Props) => {
     >
       <div className="flex w-1/3">
         <div>
-          <div className="text-lg md:text-xl leading-tight text-[#eaecef] font-medium min-w-12">
+          <div className="text-lg md:text-xl leading-tight text-moonlightMist font-medium min-w-12">
             {data.symbol}
           </div>
-          <div className="text-sm md:text-base text-[#848E9C] whitespace-nowrap leading-none">
+          <div className="text-sm md:text-base text-stormcloudSlate whitespace-nowrap leading-none">
             {data.name}
           </div>
         </div>
       </div>
       <div className="w-1/3 font-medium text-end">
-        <p className="text-[#eaecef] font-medium">
-          ${formattedPrice}
-        </p>
-        <p className="text-xs md:text-sm font-light text-[#848E9C]">
+        <p className="text-moonlightMist font-medium">${formattedPrice}</p>
+        <p className="text-xs md:text-sm font-light text-stormcloudSlate">
           ${formattedPrice}
         </p>
       </div>
       <div className="flex justify-end">
         <div
           className={`flex text-sm md:text-base items-center justify-center self-end w-[72px] h-8 ${
-            changePrc > 0 ? "bg-[#0ecb81]" : "bg-[#f6465d]"
+            changePrc > 0 ? "bg-springMeadow" : "bg-cherryBomb"
           } rounded`}
         >
           <span>{formattedPrc}</span>

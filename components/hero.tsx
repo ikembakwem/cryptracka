@@ -10,7 +10,7 @@ export const Hero = () => {
             <h1 className="text-4xl font-bold leading-[1.125] tracking-tight md:text-5xl">
               Track all your cryptocurrencies in one place
             </h1>
-            <p className="text-lg leading-snug text-[#6f7081] mt-4 md:text-xl">
+            <p className="text-lg leading-snug text-slateSmoke mt-4 md:text-xl">
               Monitor crypto prices, see top gainers and top losers to make
               informed decision for your next cryptocurrency purchase.
             </p>
