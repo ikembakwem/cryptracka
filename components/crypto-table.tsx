@@ -8,7 +8,7 @@ async function CryptoTable() {
       "Accept-Encoding": "gzip, deflate",
       "Content-Type": "application/json",
     },
-    next: { revalidate: 60 * 60 },
+    cache: "no-cache",
   });
 
   const result = await response.json();
